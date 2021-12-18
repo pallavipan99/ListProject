@@ -38,8 +38,6 @@ public class CustomAdapter extends ArrayAdapter<Apples>
         TextView textView;
         ImageView imageView;
 
-
-
         LayoutInflater layoutInflator = (LayoutInflater) mainActivityContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         View v = layoutInflator.inflate(R.layout.custom_adapter, null);
         button =  v.findViewById(R.id.button);
@@ -47,16 +45,17 @@ public class CustomAdapter extends ArrayAdapter<Apples>
         imageView = v.findViewById(R.id.imageView);
       ListView listView = v.findViewById(R.id.listView);
 
-
-
         textView.setText(apples.get(position).getName());
         imageView.setImageResource(apples.get(position).getImage());
         button.setText("Delete");
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                apples.remove(position);
+            }
+        });
 
         return v;
-
-
     }
-
 }
 

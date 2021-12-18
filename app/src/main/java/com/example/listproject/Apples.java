@@ -5,13 +5,15 @@ public class Apples {
     private String name;
     private String date;
     private double price;
+    private String context;
 
-
-    public Apples(int image, String name, String date, double price){
+    public Apples(int image, String name, String date, double price,  String context){
         this.image = image;
         this.name = name;
         this.date = date;
         this.price = price;
+        this.context = context;
+
     }
 
     public int getImage(){
@@ -26,8 +28,13 @@ public class Apples {
         return date;
     }
 
-    public double getPrice(){
+    public double getPrice() {
         return price;
     }
+
+    public String getContext(){
+      return context;
+    }
+
 
 }
