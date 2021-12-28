@@ -23,7 +23,7 @@ import java.util.List;
 public class CustomAdapter extends ArrayAdapter<Apples>
 {
     Context mainActivityContext;
-    List<Apples> apples;
+    static List<Apples> apples;
 
     public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Apples> objects){
         super(context, resource, objects);
@@ -52,10 +52,15 @@ public class CustomAdapter extends ArrayAdapter<Apples>
             @Override
             public void onClick(View v) {
                 apples.remove(position);
+                CustomAdapter.this.notifyDataSetChanged();
             }
         });
 
         return v;
+    }
+    public static List<Apples> getApples(){
+        return apples;
+
     }
 }
 
